@@ -1,36 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SignIn.scss";
-import { Menu, Dropdown, Button } from "antd";
+import { Menu, Dropdown } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import avatar1 from "assets/images/avatar_boy.png";
-import avatar2 from "assets/images/avatar_female1.png";
-import avatar3 from "assets/images/avatar_male3.png";
+
+// store
+import { useDispatch, useSelector } from "react-redux";
+import { handleInitialData, logIn } from "redux/actions/shared";
+import { allUsersSelector } from "redux/selectors/usersSelector";
 
 const SignIn = () => {
+  const users = useSelector(allUsersSelector);
+  const dispatch = useDispatch();
+
+  const [usersList, setUsersList] = useState(null);
+
+  const [selectedUser, setSelectedUser] = useState("Please Choose a user");
+
   const handleMenuClick = (e) => {
-    console.log("click", e);
+    if (e.key) {
+      setSelectedUser(e.key);
+    }
   };
 
-  // TODO fetch users & map them into a <Menu.Item>
-  const menu = (
-    <Menu onClick={handleMenuClick}>
-      <Menu.Item key="1">
-        <img src={avatar1} />
-        1st menu item
-      </Menu.Item>
-    </Menu>
-  );
+  const handleSignIn = (e) => {
+    if (selectedUser && selectedUser !== "Please Choose a user") {
+      dispatch(logIn(selectedUser));
+    }
+  };
+
+  // call the handleInitialData once at as ComponentDidMount
+  useEffect(() => {
+    dispatch(handleInitialData());
+  }, []);
+
+  // listen to changes in store.users
+  useEffect(() => {
+    if (users) {
+      const usersIds = Object.keys(users);
+
+      setUsersList(
+        usersIds.map((id) => (
+          <Menu.Item key={id}>
+            <img src={users[id].avatarURL} className="sign-in__user-avatar" />
+            <div>{users[id].name}</div>
+          </Menu.Item>
+        ))
+      );
+    }
+  }, [users]);
+
+  const menuComponent = <Menu onClick={handleMenuClick}>{usersList}</Menu>;
 
   return (
     <div className="sign-in__container">
+      <div> Would You Rather?? </div>
+
       <Dropdown.Button
-        overlay={menu}
+        overlay={menuComponent}
         placement="bottomCenter"
         icon={<UserOutlined />}
       >
-        Please Choose a user
+        {selectedUser}
       </Dropdown.Button>
-      <button className="sign-in__btn">
+      <button
+        className="sign-in__btn"
+        onClick={(e) => {
+          handleSignIn(e);
+        }}
+      >
         Sign In
       </button>
     </div>

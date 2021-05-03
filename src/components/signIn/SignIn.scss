@@ -1,9 +1,23 @@
-.sign-in__container {
-  display: flex;
-  // flex-direction: column;
-  justify-content: center;
+.sign-in {
+  &__container {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  .sign-in__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  &__user-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__btn {
     margin: 0 5px;
     cursor: pointer;
   }
