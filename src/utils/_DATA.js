@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: "sarahedo",
     name: "Sarah Edo",
-    avatarURL: "assets/images/avatar_female1.png",
+    avatarURL: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female-128.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
-    avatarURL: "assets/images/avatar_boy.png",
+    avatarURL: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/boy-128.png",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -24,7 +24,8 @@ let users = {
   johndoe: {
     id: "johndoe",
     name: "John Doe",
-    avatarURL: "assets/images/avatar_male3.png",
+    avatarURL:
+      "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
