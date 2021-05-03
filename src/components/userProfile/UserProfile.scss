@@ -1,0 +1,29 @@
+@import "../../assets/styles/settings";
+
+.user-profile__container {
+  background-color: $bg-color-main;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 3px;
+
+  .user-profile__content {
+    margin: 2px;
+  }
+
+  .user-profile__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-profile__name {
+    color: $text-color-secondary;
+    font-size: $font-size-s;
+  }
+
+  .user-profile__logout {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
