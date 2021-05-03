@@ -1,0 +1,15 @@
+.new-question__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.new-question__option-text {
+    margin: 5px;
+    resize: none;
+}
+
+.new-question__btn {
+    cursor: pointer;
+}
