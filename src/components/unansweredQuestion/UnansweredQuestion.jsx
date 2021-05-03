@@ -14,7 +14,7 @@ const UnansweredQuestion = () => {
     <div className="unanswered-question-container">
       <img className="unanswered-question__avatar" src={avatar_boy} />
       <div>{userName} asked a new question:</div>
-      <div className="unanswered-question-option-__options">
+      <div className="unanswered-question__options">
         {/* TODO edit the TOD */}
         <input
           type="radio"
