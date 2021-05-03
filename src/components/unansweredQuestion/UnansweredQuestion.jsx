@@ -22,7 +22,7 @@ const UnansweredQuestion = () => {
           name="unanswered-question-options"
           value="male"
         />
-        <label for="male">Male</label>
+        <label htmlFor="male">Male</label>
         <br />
         <input
           type="radio"
@@ -30,10 +30,15 @@ const UnansweredQuestion = () => {
           name="unanswered-question-options"
           value="female"
         />
-        <label for="female">Female</label>
+        <label htmlFor="female">Female</label>
         <br />
       </div>
-      <button className='unanswered-question-profile__btn' onClick={(e) => submitAnswer(e)}>Submit Answer</button>
+      <button
+        className="unanswered-question-profile__btn"
+        onClick={(e) => submitAnswer(e)}
+      >
+        Submit Answer
+      </button>
     </div>
   );
 };
