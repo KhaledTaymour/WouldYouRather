@@ -1,4 +1,5 @@
 import React from "react";
+import "./SignIn.scss";
 import { Menu, Dropdown, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import avatar1 from "assets/images/avatar_boy.png";
@@ -21,7 +22,7 @@ const SignIn = () => {
   );
 
   return (
-    <>
+    <div className="sign-in__container">
       <Dropdown.Button
         overlay={menu}
         placement="bottomCenter"
@@ -29,8 +30,10 @@ const SignIn = () => {
       >
         Please Choose a user
       </Dropdown.Button>
-      <Button type="primary">Sign In</Button>
-    </>
+      <button className="sign-in__btn">
+        Sign In
+      </button>
+    </div>
   );
 };
 
