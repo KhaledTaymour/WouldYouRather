@@ -17,3 +17,9 @@ export function logIn(userId) {
     dispatch(setAuthedUser(userId));
   };
 }
+
+export function logOut() {
+  return (dispatch) => {
+    dispatch(setAuthedUser(null));
+  }; 
+}

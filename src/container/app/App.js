@@ -12,7 +12,7 @@ function App() {
         <Switch>
           {/* Switch tag used in order to navigate to ONLY ONE route of the wrapped routes and not compose more than one */}
           <Route path="/signin" component={SignIn} />
-          <Route path="/Home" component={Home} />
+          <Route path="/home" component={Home} />
         </Switch>
       </div>
     </BrowserRouter>

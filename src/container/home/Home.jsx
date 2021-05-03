@@ -5,11 +5,11 @@ import UserProfile from "components/userProfile/UserProfile";
 
 // store
 import { useDispatch, useSelector } from "react-redux";
-import { authUser } from "redux/selectors/usersSelector";
+import { authedUser } from "redux/selectors/usersSelector";
 import { allQuestions } from "redux/selectors/questionsSelector";
 
 function Home() {
-  if (!authUser) {
+  if (!authedUser) {
     return <div>You are not allowed to see this page please sign in</div>;
   } else
     return (

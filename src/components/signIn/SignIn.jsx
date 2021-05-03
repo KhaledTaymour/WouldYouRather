@@ -65,7 +65,7 @@ const SignIn = () => {
       >
         {selectedUser}
       </Dropdown.Button>
-      <Link to="/Home">
+      <Link to="/home">
         <button
           className="sign-in__btn"
           onClick={(e) => {
