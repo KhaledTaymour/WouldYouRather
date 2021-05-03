@@ -1,0 +1,14 @@
+.answered-question {
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    border: 1px solid black;
+    margin: 2px;
+    padding: 2px;
+  }
+
+  &__avatar {
+    grid-row: span 3 / auto;
+  }
+}
