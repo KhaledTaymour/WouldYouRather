@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleInitialData, logIn } from "redux/actions/shared";
 import { allUsersSelector } from "redux/selectors/usersSelector";
 
+// routing
+import { Link } from "react-router-dom";
+
 const SignIn = () => {
   const users = useSelector(allUsersSelector);
   const dispatch = useDispatch();
@@ -62,14 +65,16 @@ const SignIn = () => {
       >
         {selectedUser}
       </Dropdown.Button>
-      <button
-        className="sign-in__btn"
-        onClick={(e) => {
-          handleSignIn(e);
-        }}
-      >
-        Sign In
-      </button>
+      <Link to="/Home">
+        <button
+          className="sign-in__btn"
+          onClick={(e) => {
+            handleSignIn(e);
+          }}
+        >
+          Sign In
+        </button>
+      </Link>
     </div>
   );
 };
