@@ -1,7 +1,7 @@
 import React from "react";
 import './UserProfile.scss';
 import shutDownIcon from "assets/images/shutdown.png";
-import avatar_boy from 'assets/images/avatar_boy.png'
+import avatar_boy from 'assets/images/avatar_boy.png';
 
 const UserProfile = () => {
   return (

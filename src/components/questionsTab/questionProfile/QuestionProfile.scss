@@ -1,0 +1,18 @@
+.question-profile-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid black;
+
+  .question-profile__avatar {
+    grid-row: span 2 / auto;
+    align-self: center;
+  }
+
+  .question-profile__btn {
+    cursor: pointer;
+  }
+}
