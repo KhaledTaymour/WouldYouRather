@@ -1,4 +1,4 @@
-import { getInitialData, saveQuestion, saveQuestionAnswer } from "utils/api";
+import { getInitialData } from "utils/api";
 import { receiveUsers } from "redux/actions/users";
 import { receiveQuestions } from "redux/actions/questions";
 import { setAuthedUser } from "redux/actions/authedUser";
@@ -21,11 +21,5 @@ export function logIn(userId) {
 export function logOut() {
   return (dispatch) => {
     dispatch(setAuthedUser(null));
-  };
-}
-
-export function addNewQuestion(question) {
-  return (dispatch) => {
-    dispatch(saveQuestion(question));
   };
 }
