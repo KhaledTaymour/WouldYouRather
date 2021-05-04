@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { authedUser, allUsersSelector } from "redux/selectors/usersSelector";
 
 const UnansweredQuestion = ({ question }) => {
-  const { author: questionAuthor } = question;
+  const { author: questionAuthor, optionOne, optionTwo } = question;
 
   const users = useSelector(allUsersSelector);
 
@@ -22,22 +22,21 @@ const UnansweredQuestion = ({ question }) => {
       <img className="unanswered-question__avatar" src={authorAvatar} />
       <div>{authorName} asked a new question:</div>
       <div className="unanswered-question__options">
-        {/* TODO edit the TOD */}
         <input
           type="radio"
-          id="male"
+          id={optionOne.text}
           name="unanswered-question-options"
-          value="male"
+          value={optionOne.text}
         />
-        <label htmlFor="male">Male</label>
+        <label htmlFor={optionOne.text}>{optionOne.text}</label>
         <br />
         <input
           type="radio"
-          id="female"
+          id={optionTwo.text}
           name="unanswered-question-options"
-          value="female"
+          value={optionTwo.text}
         />
-        <label htmlFor="female">Female</label>
+        <label htmlFor={optionTwo.text}>{optionTwo.text}</label>
         <br />
       </div>
       <button

@@ -5,6 +5,7 @@ import "./AnsweredQuestion.scss";
 // store
 import { useSelector } from "react-redux";
 import { authedUser, allUsersSelector } from "redux/selectors/usersSelector";
+import QuestionResult from "./questionResult/QuestionResult";
 
 const AnsweredQuestion = ({ question }) => {
   const { author: questionAuthor } = question;
@@ -19,6 +20,7 @@ const AnsweredQuestion = ({ question }) => {
       <img className="answered-question__avatar" src={authorAvatar} />
       <div>{authorName} asked the question:</div>
       {/* TODO map thru the 2 options & pass the chosen one */}
+      <QuestionResult question={question} />
     </div>
   );
 };

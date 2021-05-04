@@ -3,18 +3,27 @@ import NavBar from "components/navBar/NavBar";
 import QuestionsTab from "components/questionsTab/QuestionsTab";
 import UserProfile from "components/userProfile/UserProfile";
 import NewQuestion from "components/newQuestion/NewQuestion";
+import { useSelector } from "react-redux";
+
+// routing
+import { useHistory } from "react-router-dom";
 
 // store
 import { authedUser } from "redux/selectors/usersSelector";
 
 function NewQuestionPage() {
-  if (!authedUser) {
-    return <div>You are not allowed to see this page please sign in</div>;
+  const currentUser = useSelector(authedUser);
+  const history = useHistory();
+
+  if (!currentUser) {
+    // alert("NewQuestionPage You are not allwed to see this page please sign in");
+    history.push("/signin");
+    return null;
   } else
     return (
       <>
         <UserProfile />
-        <NavBar selection='2'/>
+        <NavBar selection="2" />
         <NewQuestion />
       </>
     );

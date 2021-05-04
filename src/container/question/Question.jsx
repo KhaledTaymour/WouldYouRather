@@ -3,7 +3,8 @@ import NavBar from "components/navBar/NavBar";
 import UserProfile from "components/userProfile/UserProfile";
 import UnansweredQuestion from "components/unansweredQuestion/UnansweredQuestion";
 import AnsweredQuestion from "components/answeredQuestion/AnsweredQuestion";
-
+// routing
+import { useHistory } from "react-router-dom";
 // store
 import { authedUser } from "redux/selectors/usersSelector";
 import { useSelector } from "react-redux";
@@ -31,8 +32,12 @@ function Question(props) {
     }
   }
 
-  if (!authedUser) {
-    return <div>You are not allowed to see this page please sign in</div>;
+  const history = useHistory();
+
+  if (!currentUser) {
+    // alert("Question You are not allwed to see this page please sign in");
+    history.push("/signin");
+    return null;
   } else
     return (
       <>
