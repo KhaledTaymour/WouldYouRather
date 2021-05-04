@@ -1,4 +1,11 @@
+@import "../../../assets/styles/settings";
+
 .question-result {
+  &__container {
+    & .voted-option{
+      background-color: $bg-color-correct;
+    }
+  }
   &-option-one, &-option-two {
     border: 1px solid black;
     border-radius: 5px;
