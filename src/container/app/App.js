@@ -14,6 +14,7 @@ function App() {
       <div className="App">
         <Switch>
           {/* Switch tag used in order to navigate to ONLY ONE route of the wrapped routes and not compose more than one */}
+          <Route exact path="/" component={SignIn} />
           <Route path="/signin" component={SignIn} />
           <Route path="/home" component={Home} />
           <Route path="/add" component={NewQuestionPage} />
