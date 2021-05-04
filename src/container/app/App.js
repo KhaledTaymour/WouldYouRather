@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import SignIn from "components/signIn/SignIn.jsx";
 import Home from "container/home/Home";
+import Question from "container/question/Question";
 import NewQuestionPage from "container/newQuestionPage/NewQuestionPage";
 import LeaderBoardPage from "container/leaderBoardPage/LeaderBoardPage";
 
@@ -16,7 +17,7 @@ function App() {
           <Route path="/signin" component={SignIn} />
           <Route path="/home" component={Home} />
           <Route path="/add" component={NewQuestionPage} />
-          {/* <Route path="/questions/:id" component={NewQuestion} /> */}
+          <Route path="/questions/:id" component={Question} />
           <Route path="/leaderboard" component={LeaderBoardPage} />
         </Switch>
       </div>

@@ -1,10 +1,17 @@
 import React from "react";
 import "./UnansweredQuestion.scss";
-import avatar_boy from "assets/images/avatar_boy.png";
 
-const UnansweredQuestion = () => {
-  //TODO get user name
-  const userName = "Khaled";
+// store
+import { useSelector } from "react-redux";
+import { authedUser, allUsersSelector } from "redux/selectors/usersSelector";
+
+const UnansweredQuestion = ({ question }) => {
+  const { author: questionAuthor } = question;
+
+  const users = useSelector(allUsersSelector);
+
+  const authorName = users[questionAuthor].name;
+  const authorAvatar = users[questionAuthor].avatarURL;
 
   const submitAnswer = (e) => {
     //TODO
@@ -12,8 +19,8 @@ const UnansweredQuestion = () => {
 
   return (
     <div className="unanswered-question-container">
-      <img className="unanswered-question__avatar" src={avatar_boy} />
-      <div>{userName} asked a new question:</div>
+      <img className="unanswered-question__avatar" src={authorAvatar} />
+      <div>{authorName} asked a new question:</div>
       <div className="unanswered-question__options">
         {/* TODO edit the TOD */}
         <input

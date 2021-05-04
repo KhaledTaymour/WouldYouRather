@@ -2,21 +2,41 @@ import React from "react";
 import "./QuestionProfile.scss";
 import avatar_boy from "assets/images/avatar_boy.png";
 
-const QuestionProfile = () => {
-  //TODO get user name
-  const userName = "Khaled";
+// store
+import { useSelector } from "react-redux";
+import { allQuestions } from "redux/selectors/questionsSelector";
+import { authedUser, allUsersSelector } from "redux/selectors/usersSelector";
+
+// routing
+import { Link, useHistory } from "react-router-dom";
+
+const QuestionProfile = ({ question, isQuestionNew }) => {
+  const history = useHistory();
+
+  const currentUser = useSelector(authedUser);
+  const users = useSelector(allUsersSelector);
+  const questions = useSelector(allQuestions);
+
+  const questionAuthorName = users[question.author].name;
+  const questionAuthorAvatar = users[question.author].avatarURL;
 
   const viewPoll = (e) => {
-    //TODO
+    e.preventDefault();
+    history.push(`questions/${question.id}`);
   };
 
   return (
-    <div className="question-profile-container">
-      <img className="question-profile__avatar" src={avatar_boy} />
-      <div>{userName} asked a new question:</div>
-      <button className="question-profile__btn" onClick={(e) => viewPoll(e)}>
-        View Poll
-      </button>
+    <div className="question-profile__container">
+      <img className="question-profile__avatar" src={questionAuthorAvatar} />
+      <div>
+        {questionAuthorName}{" "}
+        {isQuestionNew ? "asked a new question:" : "asked a question:"}{" "}
+      </div>
+      {/* <Link to={`/question/${question.id}`}> */}
+        <button className="question-profile__btn" onClick={(e) => viewPoll(e)}>
+          View Poll
+        </button>
+      {/* </Link> */}
     </div>
   );
 };

@@ -4,9 +4,7 @@ import QuestionsTab from "components/questionsTab/QuestionsTab";
 import UserProfile from "components/userProfile/UserProfile";
 
 // store
-import { useDispatch, useSelector } from "react-redux";
 import { authedUser } from "redux/selectors/usersSelector";
-import { allQuestions } from "redux/selectors/questionsSelector";
 
 function Home() {
   if (!authedUser) {
@@ -15,7 +13,7 @@ function Home() {
     return (
       <div>
         <UserProfile />
-        <NavBar selection='1' />
+        <NavBar selection="1" />
         <QuestionsTab />
       </div>
     );
