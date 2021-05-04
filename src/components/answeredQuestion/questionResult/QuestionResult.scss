@@ -2,14 +2,21 @@
 
 .question-result {
   &__container {
-    & .voted-option{
+    & .voted-option {
       background-color: $bg-color-correct;
     }
   }
-  &-option-one, &-option-two {
+  &-option-one,
+  &-option-two {
     border: 1px solid black;
     border-radius: 5px;
     padding: 2px;
     margin: 2px;
+    font-size: $font-size-s;
+  }
+  &__counts {
+    display: flex;
+    justify-content: flex-end;
+    font-size: $font-size-xs;
   }
 }

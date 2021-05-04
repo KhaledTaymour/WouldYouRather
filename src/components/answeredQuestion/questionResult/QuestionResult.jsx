@@ -18,15 +18,29 @@ const QuestionResult = ({ question }) => {
     optionTwoVoted = "voted-option";
   }
 
+  const optionOneVotesCount = optionOne.votes.length;
+  const optionTwoVotesCount = optionTwo.votes.length;
+  const totalVotes = optionOneVotesCount + optionTwoVotesCount;
+
+  const optionOneVotesPercentage = (optionOneVotesCount / totalVotes) * 100;
+
+  const optionTwoVotesPercentage = (optionTwoVotesCount / totalVotes) * 100;
+
   return (
     <div className="question-result__container">
       <div className={`question-result-option-one ${optionOneVoted}`}>
         <div className="question-result__text">{optionOne.text}</div>
-        <div className="question-result__counts">TODO: Calculate ... </div>
+        <div className="question-result__counts">
+          {optionOneVotesCount} out of {totalVotes} persons voted for this
+          option <br />({optionOneVotesPercentage}%)
+        </div>
       </div>
       <div className={`question-result-option-two ${optionTwoVoted}`}>
         <div className="question-result__text">{optionTwo.text}</div>
-        <div className="question-result__counts">TODO: Calculate ... </div>
+        <div className="question-result__counts">
+          {optionTwoVotesCount} out of {totalVotes} persons voted for this
+          option <br />({optionTwoVotesPercentage}%)
+        </div>
       </div>
     </div>
   );
