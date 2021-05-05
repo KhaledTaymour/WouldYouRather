@@ -22,7 +22,12 @@ function QuestionsTab() {
   const unAnsweredQuestionsIds = [];
   const answeredQuestionsIds = [];
 
-  const questionsIds = Object.keys(questions);
+  // sort unanswered & answered chronologically from Newer to Older
+  const questionsIds = Object.keys(questions).sort(
+    (a, b) => questions[b].timestamp - questions[a].timestamp
+  );
+
+  //differntiate unanswered & answered
   for (const id of questionsIds) {
     if (
       questions[id].optionOne.votes.includes(currentUser) ||
