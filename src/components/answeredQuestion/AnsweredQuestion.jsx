@@ -23,6 +23,7 @@ const AnsweredQuestion = ({ question }) => {
         alt={`${authorName} avatar`}
       />
       <div>{authorName} asked the question:</div>
+      <div>Would You Rather</div>
       <QuestionResult question={question} />
     </div>
   );

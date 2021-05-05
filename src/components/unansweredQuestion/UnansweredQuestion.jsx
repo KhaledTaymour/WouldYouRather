@@ -43,6 +43,7 @@ const UnansweredQuestion = ({ question }) => {
         alt={`${authorName} avatar`}
       />
       <div>{authorName} asked a new question:</div>
+      <div>Would You Rather</div>
       <div className="unanswered-question__options">
         <input
           type="radio"
