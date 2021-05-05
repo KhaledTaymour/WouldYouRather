@@ -37,7 +37,11 @@ const UnansweredQuestion = ({ question }) => {
 
   return (
     <div className="unanswered-question-container">
-      <img className="unanswered-question__avatar" src={authorAvatar} />
+      <img
+        className="unanswered-question__avatar"
+        src={authorAvatar}
+        alt={`${authorName} avatar`}
+      />
       <div>{authorName} asked a new question:</div>
       <div className="unanswered-question__options">
         <input

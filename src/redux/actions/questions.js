@@ -1,7 +1,7 @@
 import {
   RECEIVE_QUESTIONS,
   ADD_QUESTION,
-  REVERT_QUESTION,
+  // REVERT_QUESTION,
   ADD_VOTES_IN_QUESTION,
 } from "redux/actionTypes";
 
@@ -43,12 +43,12 @@ function addQuestion(question) {
   };
 }
 
-function revertQuestion(question) {
-  return {
-    type: REVERT_QUESTION,
-    question,
-  };
-}
+// function revertQuestion(question) {
+//   return {
+//     type: REVERT_QUESTION,
+//     question,
+//   };
+// }
 
 export function submitQuestionAnswer({ authedUser, qid, answer }) {
   return (dispatch) => {

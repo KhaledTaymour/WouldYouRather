@@ -5,7 +5,6 @@ import { allUsersSelector } from "redux/selectors/usersSelector";
 
 const Leaderboard = () => {
   const users = useSelector(allUsersSelector);
-  const usersIds = Object.keys(users);
 
   const usersRatings = [];
 

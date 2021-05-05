@@ -4,7 +4,7 @@ import "./AnsweredQuestion.scss";
 
 // store
 import { useSelector } from "react-redux";
-import { authedUser, allUsersSelector } from "redux/selectors/usersSelector";
+import { allUsersSelector } from "redux/selectors/usersSelector";
 import QuestionResult from "./questionResult/QuestionResult";
 
 const AnsweredQuestion = ({ question }) => {
@@ -17,7 +17,11 @@ const AnsweredQuestion = ({ question }) => {
 
   return (
     <div className="answered-question__container">
-      <img className="answered-question__avatar" src={authorAvatar} />
+      <img
+        className="answered-question__avatar"
+        src={authorAvatar}
+        alt={`${authorName} avatar`}
+      />
       <div>{authorName} asked the question:</div>
       <QuestionResult question={question} />
     </div>

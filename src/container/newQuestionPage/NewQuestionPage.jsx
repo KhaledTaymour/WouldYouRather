@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "components/navBar/NavBar";
-import QuestionsTab from "components/questionsTab/QuestionsTab";
 import UserProfile from "components/userProfile/UserProfile";
 import NewQuestion from "components/newQuestion/NewQuestion";
 import { useSelector } from "react-redux";

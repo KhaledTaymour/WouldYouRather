@@ -44,7 +44,11 @@ const SignIn = () => {
       setUsersList(
         usersIds.map((id) => (
           <Menu.Item key={id}>
-            <img src={users[id].avatarURL} className="sign-in__user-avatar" />
+            <img
+              src={users[id].avatarURL}
+              className="sign-in__user-avatar"
+              alt={`${users[id].name} avatar`}
+            />
             <div>{users[id].name}</div>
           </Menu.Item>
         ))

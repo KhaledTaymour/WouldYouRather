@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./NewQuestion.scss";
 
 // store
 import { useDispatch, useSelector } from "react-redux";
 import { authedUser } from "redux/selectors/usersSelector";
 import { addNewQuestion } from "redux/actions/questions";
-import { addNewQuestionToUser } from "redux/actions/users";
 
 // routing
 import { useHistory } from "react-router-dom";
@@ -18,15 +17,11 @@ const NewQuestion = () => {
   const optionOneRef = useRef("");
   const optionTwoRef = useRef("");
 
-  const [optOne, setOptOne] = useState(null);
-  const [optTwo, setOptTwo] = useState(null);
-
   const checkAreTextsFilled = async () => {
-    const optOneValue = optionOneRef.current.value;
-    const optTwoValue = optionTwoRef.current.value;
-    if (optOneValue.length > 0 && optTwoValue.length > 0) {
-      await setOptOne(optionOneRef.current.value);
-      await setOptTwo(optionTwoRef.current.value);
+    if (
+      optionOneRef.current.value.length > 0 &&
+      optionTwoRef.current.value.length > 0
+    ) {
       return true;
     } else return false;
   };

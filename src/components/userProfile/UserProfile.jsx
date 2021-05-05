@@ -24,6 +24,7 @@ const UserProfile = () => {
       <img
         className="user-profile__content user-profile__avatar"
         src={users[currentUser].avatarURL}
+        alt={`${users[currentUser].name} avatar`}
       />
       <div className="user-profile__content user-profile__name">
         {users[currentUser].name}
@@ -32,6 +33,8 @@ const UserProfile = () => {
         <img
           className="user-profile__content user-profile__logout"
           src={shutDownIcon}
+          title="Sign Out"
+          alt="Sign Out"
           onClick={(e) => handleSignOut(e)}
         />
       </Link>
