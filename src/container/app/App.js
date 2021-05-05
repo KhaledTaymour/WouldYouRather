@@ -2,7 +2,7 @@ import "./App.scss";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import SignIn from "components/signIn/SignIn.jsx";
+import SignIn from "components/signIn/SignIn";
 import Home from "container/home/Home";
 import Question from "container/question/Question";
 import NewQuestionPage from "container/newQuestionPage/NewQuestionPage";
