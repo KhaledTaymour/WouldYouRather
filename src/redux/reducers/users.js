@@ -14,12 +14,11 @@ export default function users(state = {}, action) {
     case UPDATE_USERS_OPTIMISTICALLY:
       const { questionId, currentUser } = action.payload;
 
-      const userQuestions = state[currentUser].questions.push(questionId);
       return {
         ...state,
-        currentUser: {
-          ...state.currentUser,
-          questions: userQuestions,
+        [currentUser]: {
+          ...state[currentUser],
+          questions: [...state[currentUser].questions, questionId],
         },
       };
 
@@ -27,7 +26,7 @@ export default function users(state = {}, action) {
       const { authedUser, qid, answer } = action.payload;
       return {
         ...state,
-        authedUser: {
+        [authedUser]: {
           ...state[authedUser],
           answers: {
             ...state[authedUser].answers,
