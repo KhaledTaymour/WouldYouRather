@@ -2,6 +2,7 @@ import {
   RECEIVE_QUESTIONS,
   ADD_QUESTION,
   REVERT_QUESTION,
+  ADD_VOTES_IN_QUESTION,
 } from "redux/actionTypes";
 
 export default function questions(state = {}, action) {
@@ -30,6 +31,18 @@ export default function questions(state = {}, action) {
         questions: revertedQuestions,
       };
 
+    case ADD_VOTES_IN_QUESTION:
+      const { authedUser, qid, answer } = action.payload;
+
+      return {
+        ...state,
+        [qid]: {
+          ...state[qid],
+          answer: {
+            ...state[qid][answer].votes.push(authedUser),
+          },
+        },
+      };
     default:
       return state;
   }

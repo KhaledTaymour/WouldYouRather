@@ -2,11 +2,15 @@ import {
   RECEIVE_QUESTIONS,
   ADD_QUESTION,
   REVERT_QUESTION,
+  ADD_VOTES_IN_QUESTION,
 } from "redux/actionTypes";
 
-import { saveQuestion, saveQuestionAnswer } from "utils/api";
+import { api_saveQuestion, api_saveQuestionAnswer } from "utils/api";
 
-import { addNewQuestionToUser } from "redux/actions/users";
+import {
+  addNewQuestionToUser,
+  addQuestionAndAnswerInUser,
+} from "redux/actions/users";
 
 export function receiveQuestions(questions) {
   return {
@@ -17,7 +21,7 @@ export function receiveQuestions(questions) {
 
 export function addNewQuestion(question, currentUser) {
   return (dispatch) => {
-    return saveQuestion(question)
+    return api_saveQuestion(question)
       .then((question) => {
         // Add question optimistically
         dispatch(addQuestion(question));
@@ -27,28 +31,40 @@ export function addNewQuestion(question, currentUser) {
       .catch((e) => {
         console.log(e);
         //TODO Revert question
+        // revertQuestion(question);
       });
   };
 }
 
-export function addQuestion(question) {
+function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     payload: question,
   };
 }
 
-export function revertQuestion(question) {
+function revertQuestion(question) {
   return {
     type: REVERT_QUESTION,
     question,
   };
 }
 
-export function submitQuestionAnswer(answer) {
+export function submitQuestionAnswer({ authedUser, qid, answer }) {
   return (dispatch) => {
-    return saveQuestionAnswer(answer).then(() => {
-      return {};
+    return api_saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+      // edit questions in users
+      dispatch(addQuestionAndAnswerInUser({ authedUser, qid, answer }));
+
+      // edit users in questions
+      dispatch(addVotesToQuestion({ authedUser, qid, answer }));
     });
+  };
+}
+
+function addVotesToQuestion({ authedUser, qid, answer }) {
+  return {
+    type: ADD_VOTES_IN_QUESTION,
+    payload: { authedUser, qid, answer },
   };
 }

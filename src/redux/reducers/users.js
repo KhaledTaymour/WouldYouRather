@@ -1,4 +1,8 @@
-import { RECEIVE_USERS, UPDATE_USERS_OPTIMISTICALLY } from "redux/actionTypes";
+import {
+  RECEIVE_USERS,
+  UPDATE_USERS_OPTIMISTICALLY,
+  ADD_QUESTION_AND_ANSWER_IN_USER,
+} from "redux/actionTypes";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -18,6 +22,20 @@ export default function users(state = {}, action) {
           questions: userQuestions,
         },
       };
+
+    case ADD_QUESTION_AND_ANSWER_IN_USER:
+      const { authedUser, qid, answer } = action.payload;
+      return {
+        ...state,
+        authedUser: {
+          ...state[authedUser],
+          answers: {
+            ...state[authedUser].answers,
+            qid: answer,
+          },
+        },
+      };
+
     default:
       return state;
   }

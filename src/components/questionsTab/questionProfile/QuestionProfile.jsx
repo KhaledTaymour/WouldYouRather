@@ -33,9 +33,9 @@ const QuestionProfile = ({ question, isQuestionNew }) => {
         {isQuestionNew ? "asked a new question:" : "asked a question:"}{" "}
       </div>
       {/* <Link to={`/question/${question.id}`}> */}
-        <button className="question-profile__btn" onClick={(e) => viewPoll(e)}>
-          View Poll
-        </button>
+      <button className="question-profile__btn" onClick={(e) => viewPoll(e)}>
+        {isQuestionNew ? "View Question" : "View Poll"}
+      </button>
       {/* </Link> */}
     </div>
   );

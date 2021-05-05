@@ -39,7 +39,11 @@ function QuestionsTab() {
       <TabPane tab="Unanswered Questions" key="1">
         Unanswered Questions
         {unAnsweredQuestionsIds.map((id) => (
-          <QuestionProfile question={questions[id]} isQuestionNew={true} />
+          <QuestionProfile
+            key={id}
+            question={questions[id]}
+            isQuestionNew={true}
+          />
         ))}
       </TabPane>
       <TabPane tab="Answered Questions" key="2">
