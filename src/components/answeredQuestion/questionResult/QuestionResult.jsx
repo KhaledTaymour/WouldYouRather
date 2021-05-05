@@ -22,9 +22,13 @@ const QuestionResult = ({ question }) => {
   const optionTwoVotesCount = optionTwo.votes.length;
   const totalVotes = optionOneVotesCount + optionTwoVotesCount;
 
-  const optionOneVotesPercentage = (optionOneVotesCount / totalVotes) * 100;
+  let optionOneVotesPercentage = (optionOneVotesCount / totalVotes) * 100;
+  //round to 2 decmial places
+  optionOneVotesPercentage = Math.round(optionOneVotesPercentage * 100) / 100;
 
-  const optionTwoVotesPercentage = (optionTwoVotesCount / totalVotes) * 100;
+  let optionTwoVotesPercentage = (optionTwoVotesCount / totalVotes) * 100;
+  //round to 2 decmial places
+  optionTwoVotesPercentage = Math.round(optionTwoVotesPercentage * 100) / 100;
 
   return (
     <div className="question-result__container">
