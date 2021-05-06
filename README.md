@@ -27,3 +27,10 @@ solidify your understanding of React and Redux
 - the user can add a new question
 - there is a dashboard for the users based on there engagement in the App.
 - the user can navigate between Questions, New Question, and Leaderboard.
+
+## How to install & run
+
+1. clone the project.
+2. run `npm install` on the `root folder`.
+3. after finishing, run `npm start`, the app will open by default on the port `3000`.
+4. Enjoy 😉.
