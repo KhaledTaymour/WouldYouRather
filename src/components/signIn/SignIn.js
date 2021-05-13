@@ -9,11 +9,14 @@ import { handleInitialData, logIn } from "redux/actions/shared";
 import { allUsersSelector } from "redux/selectors/usersSelector";
 
 // routing
-import { Link } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 const SignIn = () => {
   const users = useSelector(allUsersSelector);
   const dispatch = useDispatch();
+
+  const { state } = useLocation();
+  const history = useHistory();
 
   const [usersList, setUsersList] = useState(null);
 
@@ -28,6 +31,9 @@ const SignIn = () => {
   const handleSignIn = (e) => {
     if (selectedUser && selectedUser !== "Please Choose a user") {
       dispatch(logIn(selectedUser));
+      if (state?.from?.pathname) {
+        history.push(state.from?.pathname);
+      } else history.push("/home");
     }
   };
 
@@ -69,16 +75,14 @@ const SignIn = () => {
       >
         {selectedUser}
       </Dropdown.Button>
-      <Link to="/home">
-        <button
-          className="sign-in__btn"
-          onClick={(e) => {
-            handleSignIn(e);
-          }}
-        >
-          Sign In
-        </button>
-      </Link>
+      <button
+        className="sign-in__btn"
+        onClick={(e) => {
+          handleSignIn(e);
+        }}
+      >
+        Sign In
+      </button>
     </div>
   );
 };
