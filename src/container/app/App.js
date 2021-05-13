@@ -17,26 +17,18 @@ function App() {
           {/* Switch tag used in order to navigate to ONLY ONE route of the wrapped routes and not compose more than one */}
           <Route exact path="/" component={SignIn} />
           <Route path="/signin" component={SignIn} />
-          <Route path="/home">
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          </Route>
-          <Route path="/add">
-            <PrivateRoute>
-              <NewQuestionPage />
-            </PrivateRoute>
-          </Route>
-          <Route path="/questions/:id">
-            <PrivateRoute>
-              <Question />
-            </PrivateRoute>
-          </Route>
-          <Route path="/leaderboard">
-            <PrivateRoute>
-              <LeaderBoardPage />
-            </PrivateRoute>
-          </Route>
+          <PrivateRoute path="/home">
+            <Home />
+          </PrivateRoute>
+          <PrivateRoute path="/add">
+            <NewQuestionPage />
+          </PrivateRoute>
+          <PrivateRoute path="/questions/:id">
+            <Question />
+          </PrivateRoute>
+          <PrivateRoute path="/leaderboard">
+            <LeaderBoardPage />
+          </PrivateRoute>
         </Switch>
       </div>
     </BrowserRouter>
