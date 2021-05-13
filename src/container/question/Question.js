@@ -7,9 +7,11 @@ import AnsweredQuestion from "components/answeredQuestion/AnsweredQuestion";
 import { authedUser } from "redux/selectors/usersSelector";
 import { useSelector } from "react-redux";
 import { allQuestions } from "redux/selectors/questionsSelector";
+// routing
+import { useParams } from "react-router-dom";
 
-function Question(props) {
-  const _questionId = props?.match?.params?.id;
+function Question() {
+  const _questionId = useParams().id;
 
   const currentUser = useSelector(authedUser);
   const questions = useSelector(allQuestions);
