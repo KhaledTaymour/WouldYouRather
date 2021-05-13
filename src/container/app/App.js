@@ -8,6 +8,7 @@ import Question from "container/question/Question";
 import NewQuestionPage from "container/newQuestionPage/NewQuestionPage";
 import LeaderBoardPage from "container/leaderBoardPage/LeaderBoardPage";
 import PrivateRoute from "container/privateRoute/PrivateRoute";
+import FourOhFour from "container/fourOhFour/FourOhFour";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           {/* Switch tag used in order to navigate to ONLY ONE route of the wrapped routes and not compose more than one */}
           <Route exact path="/" component={SignIn} />
           <Route path="/signin" component={SignIn} />
+
           <PrivateRoute path="/home">
             <Home />
           </PrivateRoute>
@@ -29,6 +31,9 @@ function App() {
           <PrivateRoute path="/leaderboard">
             <LeaderBoardPage />
           </PrivateRoute>
+
+          <Route path="/404" component={FourOhFour} />
+          <Route component={FourOhFour} />
         </Switch>
       </div>
     </BrowserRouter>
