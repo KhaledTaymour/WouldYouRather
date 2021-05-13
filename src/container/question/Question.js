@@ -3,8 +3,6 @@ import NavBar from "components/navBar/NavBar";
 import UserProfile from "components/userProfile/UserProfile";
 import UnansweredQuestion from "components/unansweredQuestion/UnansweredQuestion";
 import AnsweredQuestion from "components/answeredQuestion/AnsweredQuestion";
-// routing
-import { useHistory } from "react-router-dom";
 // store
 import { authedUser } from "redux/selectors/usersSelector";
 import { useSelector } from "react-redux";
@@ -32,24 +30,17 @@ function Question(props) {
     }
   }
 
-  const history = useHistory();
-
-  if (!currentUser) {
-    // alert("Question You are not allwed to see this page please sign in");
-    history.push("/signin");
-    return null;
-  } else
-    return (
-      <>
-        <UserProfile />
-        <NavBar selection="1" />
-        {isNewQuestion ? (
-          <UnansweredQuestion question={currentQuestion} />
-        ) : (
-          <AnsweredQuestion question={currentQuestion} />
-        )}
-      </>
-    );
+  return (
+    <>
+      <UserProfile />
+      <NavBar selection="1" />
+      {isNewQuestion ? (
+        <UnansweredQuestion question={currentQuestion} />
+      ) : (
+        <AnsweredQuestion question={currentQuestion} />
+      )}
+    </>
+  );
 }
 
 export default Question;
